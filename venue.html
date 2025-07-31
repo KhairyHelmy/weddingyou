@@ -1,0 +1,300 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"> 
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Venue</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #000000;
+            padding: 10px 20px;
+        }
+        .navbar {
+            display: flex;
+            align-items: center;
+        }
+        .navbar a {
+            color: #ffd700;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+        .navbar a:hover {
+            background-color: #ffd700;
+            color: gold;
+        }
+        .logo {
+            align-self: center;
+        }
+        .logo img {
+            height: 60px; /* Adjust as needed */
+        }
+        .search-container {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #f2f2f2;
+        }
+        .search-container input[type="text"] {
+            padding: 5px 10px;
+            font-size: 14px;
+            border: 1px solid #ddd;
+            width: 150px; /* Adjust width as needed */
+        }
+        .search-container button {
+            padding: 5px 10px;
+            background: none;
+            border: 1px solid #ddd;
+            cursor: pointer;
+        }
+        .hamburger-menu {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px; /* Width of the hamburger menu */
+            height: 25px; /* Height of the hamburger menu */
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            margin-left: 10px;
+        }
+        .hamburger-menu div {
+            width: 100%;
+            height: 2px;
+            background-color: #333;
+        }
+        .dropdown-menu {
+            display: none; /* Hide menu initially */
+            position: absolute;
+            right: 0;
+            top: 50px; /* Adjust as needed based on your layout */
+            background-color: #f2f2f2;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 5px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        }
+
+        .dropdown-menu a {
+            display: block;
+            color: #333;
+            padding: 10px 20px;
+            text-decoration: none;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #ddd;
+        }     
+        .hamburger-menu:focus + .dropdown-menu, 
+        .hamburger-menu:hover + .dropdown-menu {
+            display: block; /* Show menu on hover or focus */
+        }
+		
+		.image-container {
+            width: 100%;
+            text-align: center;
+        }
+
+        .image-container img {
+            width: 24.7%; /* Set the width of the image to one-third of the container */
+            height: auto; /* Maintain the aspect ratio */
+			margin-top: 20px;
+        }
+		
+		.bg-1 { 
+            background-color: #000000;  
+            color: #ffffff;
+        }
+        .bg-2 { 
+            background-color: #000000; /* Dark Blue */
+            color: #ffffff;
+        }
+        .bg-3 { 
+            background-color: #ffffff; /* White */
+            color: #555555;
+        }
+        .container-fluid{
+            padding-top: 70px;
+            padding-bottom:  70px; 
+			text-align: center
+        }
+        .navbar {
+  	        padding-top: 15px;
+  	        padding-bottom: 15px;
+  	        border: 0;
+  	        border-radius: 0;
+  	        margin-bottom: 0;
+  	        font-size: 12px;
+  	        letter-spacing: 5px;
+    	}
+        .navbar-nav li a:hover {
+  	        color: #1abc9c !important;
+    	}
+		.container-fluid img {
+            display: block;
+            margin: auto; /* Center the image */
+			border-radius: 50%;
+        }
+		.site-footer {
+           background-color: #000000; /* Footer background color */
+           color: #fff; /* Footer text color */
+           padding: 20px 0; /* Footer padding */
+           font-size: 14px; /* Footer text size */
+       }
+       .footer-container {
+           max-width: 1200px; /* Max width of the content inside the footer */
+           margin: 0 auto; /* Center the footer container */
+           padding: 0 15px; /* Padding inside the container */
+       }
+       .footer-row {
+           display: flex;
+           flex-wrap: wrap;
+           justify-content: space-between;
+       }
+       .footer-column {
+           flex: 1;
+           min-width: 200px; /* Minimum width of each footer column */
+           margin-bottom: 20px; /* Space between columns */
+       }
+      .footer-column h3 {
+           margin-bottom: 10px; /* Space below the column header */
+       }
+       .footer-column ul {
+           list-style-type: none; /* Removes the default list style */
+           padding: 0; /* Removes default padding */
+           margin: 0; /* Removes default margin */
+       }
+       .footer-column ul li {
+           margin-bottom: 5px; /* Space between list items */
+       }
+       .footer-column ul li a {
+           color: #fff; /* Link color */
+           text-decoration: none; /* Removes underline from links */
+       }
+
+       .social-icons {
+           display: flex;
+           padding: 0;
+       }
+
+       .social-icons li {
+            margin-right: 10px; /* Space between social icons */
+       }
+
+      .social-icons li a img {
+            width: 24px; /* Size of social icons */
+            height: auto;
+       }
+
+       @media (max-width: 768px) {
+            .footer-row {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-column {
+        min-width: 100%; /* Each column takes full width on small screens */
+        }
+       
+		
+   </style>
+</head>
+<body>
+
+<div class="search-container">
+    <form action="/search" method="get" style="display: flex; align-items: center;">
+        <input type="text" placeholder="Search.." name="search">
+        <button type="submit">Search</button>
+    </form>
+
+    <button class="hamburger-menu">
+        <div></div>
+        <div></div>
+        <div></div>
+    </button>
+        <!-- Dropdown Menu Items -->
+        <div class="dropdown-menu">
+            <a href="#register">Register</a>
+            <a href="#login">Login</a>
+            <a href="#logout">Logout</a>   
+        </div>
+   </div>
+
+<div class="header">
+    <div class="logo">
+        <img src="logo.jpg" alt="Logo">
+    </div>
+    <div class="navbar">
+        <a href="home.html">Home</a>
+        <a href="dais.html">Dais</a>
+        <a href="card.html">Card</a>
+        <a href="makeup.html">Makeup</a>
+        <a href="memory.html">Memory</a>
+        <a href="fitting.html">Fitting</a>
+        <a href="venue.html">Venue</a>
+        <a href="dowry.html">Dowry</a>
+        <a href="contact.html">Contact</a>
+    </div>
+</div>
+
+<div id="venue" class="container-fluid bg-1 text-center">
+   <h3>BAYSWATER KLCC</h3>
+   <!-- The circular bird -->
+   <img src="venue9.jpeg" class="img-responsive img-circle" style="display:inline" alt="Bird">
+   <h3>In the heart of simplicity, our venue invites love to blossom in its uncomplicated beauty.</h3>
+</div>
+
+<div class="image-container">
+        <!-- Replace "path/to/your/image.jpg" with the actual path or URL of your image -->
+        <img src="venue11.jpg" alt="Description of the image">
+		<img src="venue4.png" alt="Description of the image">
+		<img src="venue3.jpg" alt="Description of the image">
+		<img src="venue8.png" alt="Description of the image">
+
+    </div>
+	
+	<footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-row">
+                <div class="footer-column">
+                    <h3>About Us</h3>
+                    <p>We are a dedicated team passionate about making your special day unforgettable.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li>Your Wedding Lane</li>
+                        <li>Phone: 011-28979023</li>
+                        <li>Email: azianaaziz@weddingplanner.com</li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Follow Us</h3>
+                    <ul class="social-icons">
+                        <li><a href="https://www.facebook.com/ainiatirahbtjasmi" target="_blank""><img src="fb.png" alt="Facebook"></a></li>
+                        <li><a href="https://twitter.com/lurvee4u target="_blank""><img src="x.png" alt="X"></a></li>
+                        <li><a href="https://www.instagram.com/_ainiatirah target="_blank"><img src="ig.png" alt="Instagram"></a></li>
+                        <li><a href="https://www.pinterest.com/ainiatirah44" target="_blank""><img src="p.png" alt="Pinterest"></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

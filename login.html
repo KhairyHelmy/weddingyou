@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body, html {
+            background: #000000;
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 300px;
+            margin: 0 auto;
+            padding:50px;
+            text-align: left;
+            border: 1px solid #ddd; /* Add a border */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Optional: add a shadow */
+            border-radius: 10px; /* Optional: round the corners */
+            background-color: #f9f9f9; /* Optional: background color */
+        }
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .form-box {
+            width: 300px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 8px;
+            margin: 10px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #000000;
+            color: gold;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Login</h2>
+    <form id="loginForm">
+        <label for="username">Username:</label><br>
+        <input type="text" id="username" name="username" required><br>
+
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password" required><br>
+
+        <button type="submit">Login</button>
+    </form>
+</div>
+
+
+<script>
+     document.getElementById('loginForm').onsubmit = function(event) {
+        event.preventDefault();
+
+        var username = document.getElementById('username').value;
+        var password = document.getElementById('password').value;
+
+        // Example credentials
+        var correctUsername = 'user123';
+        var correctPassword = 'password123';
+
+        if (username === correctUsername && password === correctPassword) {
+            // Redirect to homepage
+            window.location.href = 'home.html';
+        } else {
+            // Show error message
+            alert('Your username or password is wrong. Please try again.');
+        }
+    };
+</script>
+
+</body>
+</html>
+

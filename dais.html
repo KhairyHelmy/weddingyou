@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dais</title>
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+     <link rel="stylesheet" type="text/css" href="style.css">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+   <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        h4 {
+           font-size: 19px;
+           line-height: 1.500em;
+           color: #000000;
+           font-weight: 400;
+           font-family: "Lucida Handwriting", cursive;
+           margin-bottom: 30px;
+           }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #000;
+            padding: 10px 20px;
+        }
+        .navbar {
+            display: flex;
+            align-items: center;
+        }
+        .navbar a {
+            color: #FFD700;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+        .navbar a:hover {
+            background-color: #FFD700;
+            color: black;
+        }
+        .logo {
+            align-self: center;
+        }
+        .logo img {
+            height: 60px; /* Adjust as needed */
+        }
+        .search-container {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #f2f2f2;
+        }
+        .search-container input[type="text"] {
+            padding: 5px 10px;
+            font-size: 14px;
+            border: 1px solid #ddd;
+            width: 150px; /* Adjust width as needed */
+        }
+        .search-container button {
+            padding: 5px 10px;
+            background: none;
+            border: 1px solid #ddd;
+            cursor: pointer;
+        }
+        .hamburger-menu {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px; /* Width of the hamburger menu */
+            height: 25px; /* Height of the hamburger menu */
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            margin-left: 10px;
+        }
+        .hamburger-menu div {
+            width: 100%;
+            height: 2px;
+            background-color: #333;
+        }
+        .dropdown-menu {
+            display: none; /* Hide menu initially */
+            position: absolute;
+            right: 0;
+            top: 50px; /* Adjust as needed based on your layout */
+            background-color: #f2f2f2;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 5px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        }
+
+        .dropdown-menu a {
+            display: block;
+            color: #333;
+            padding: 10px 20px;
+            text-decoration: none;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #ddd;
+        }     
+        .hamburger-menu:focus + .dropdown-menu, 
+        .hamburger-menu:hover + .dropdown-menu {
+            display: block; /* Show menu on hover or focus */
+        }
+        #wedding-planner {
+            color: gold;
+            font-family: Lucida Handwriting, cursive;
+        }
+         .bg-1 { 
+            background-color: #000000;  /* black */
+            color: #ffffff;
+        }
+          
+        .image-gallery {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 50px;
+        }
+
+        .image-gallery img {
+            width: 42%; /* Adjust the width as needed */
+            height: auto; /* This maintains the aspect ratio of the images */
+            display: block; /* Ensures each image is on a new line */
+            margin-bottom: 10px; /* Space between images */
+        }
+        .custom-font {
+            font-family: Lucida Handwriting, cursive;
+            font-size: 15px;
+        }
+        .section-spacing {
+            margin-top: 70px;
+        }
+        .large-icon {
+            font-size: 30px; /* Adjust the size as needed */
+            color: #000000;
+        }
+        .bigger-icon {
+            font-size: 200px; /* Adjust the size as you like */
+            color: #000000;
+     
+        }
+        @keyframes slideFromBottom {
+        0%, 100% {
+            transform: translateY(100%); /* Start and end below */
+            opacity: 0;
+        }
+        50% {
+            transform: translateY(0);
+            opacity: 1;
+        }
+       }
+        .slide-icon {
+            animation: slideFromBottom 5s ease-in-out forwards;
+            animation-iteration-count: 3;
+        }
+        #contact {
+            background-color: black;
+            color: gold; /* Gold color for text */
+       }
+
+       #contact a {
+            color: gold; /* Gold color specifically for links, if any */
+       }
+       .align-center {
+            float: center;
+            margin: 50px;
+            padding: 30px;
+       }
+       .site-footer {
+           background-color: #000000; /* Footer background color */
+           color: #fff; /* Footer text color */
+           padding: 20px 0; /* Footer padding */
+           font-size: 14px; /* Footer text size */
+       }
+       .footer-container {
+           max-width: 1200px; /* Max width of the content inside the footer */
+           margin: 0 auto; /* Center the footer container */
+           padding: 0 15px; /* Padding inside the container */
+       }
+       .footer-row {
+           display: flex;
+           flex-wrap: wrap;
+           justify-content: space-between;
+       }
+       .footer-column {
+           flex: 1;
+           min-width: 200px; /* Minimum width of each footer column */
+           margin-bottom: 20px; /* Space between columns */
+       }
+      .footer-column h3 {
+           margin-bottom: 10px; /* Space below the column header */
+       }
+       .footer-column ul {
+           list-style-type: none; /* Removes the default list style */
+           padding: 0; /* Removes default padding */
+           margin: 0; /* Removes default margin */
+       }
+       .footer-column ul li {
+           margin-bottom: 5px; /* Space between list items */
+       }
+       .footer-column ul li a {
+           color: #fff; /* Link color */
+           text-decoration: none; /* Removes underline from links */
+       }
+
+       .social-icons {
+           display: flex;
+           padding: 0;
+       }
+
+       .social-icons li {
+            margin-right: 10px; /* Space between social icons */
+       }
+
+      .social-icons li a img {
+            width: 24px; /* Size of social icons */
+            height: auto;
+       }
+
+       @media (max-width: 768px) {
+            .footer-row {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-column {
+        min-width: 100%; /* Each column takes full width on small screens */
+        }
+
+   </style>
+</head>
+<body>
+
+<div class="search-container">
+    <form action="/search" method="get" style="display: flex; align-items: center;">
+        <input type="text" placeholder="Search.." name="search">
+        <button type="submit">Search</button>
+    </form>
+
+    <button class="hamburger-menu">
+        <div></div>
+        <div></div>
+        <div></div>
+    </button>
+        <!-- Dropdown Menu Items -->
+        <div class="dropdown-menu">
+            <a href="#register">Register</a>
+            <a href="#login">Login</a>
+            <a href="#logout">Logout</a>   
+        </div>
+   </div>
+
+<div class="header">
+    <div class="logo">
+        <img src="logo.jpg" alt="Logo">
+    </div>
+    <div class="navbar">
+        <a href="home.html">Home</a>
+        <a href="dais.html">Dais</a>
+        <a href="card.html">Card</a>
+        <a href="makeup.html">Makeup</a>
+        <a href="memory.html">Memory</a>
+        <a href="fitting.html">Fitting</a>
+        <a href="venue.html">Venue</a>
+        <a href="dowry.html">Dowry</a>
+        <a href="contact.html">Contact</a>
+    </div>
+</div>
+
+<div style="padding:20px">
+    <!-- Content of the website goes here -->
+</div>
+
+<div class="container-fluid bg-1 text-center" id="wedding-planner">
+   <h3>Your Wedding Planner</h3>
+   <!-- The wedding dais -->
+   <img src="logodais.png" class="img-circle" alt="Dais">
+   <h3>DeireWedding</h3>
+</div>
+
+
+<div class="container">
+    <div class="image-container">
+      <div class="image-gallery">
+        <img src="dais1.jpg" alt="Image 1">
+        <img src="dais2.jpg" alt="Image 2">
+        <img src="dais5.jpg" alt="Image 3">
+    </div>
+</div>
+  
+<div class="container-fluid bg-black">
+  <div class="row">
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-heart bigger-icon slide-icon"></span>
+    </div>
+    <div class="col-sm-8">
+      <h2>Our Values</h2><br>
+      <h4>DeireWedding specializes in creating breathtaking 
+          wedding dais (pelamin) setups, transforming wedding venues into magical 
+          and memorable spaces. As a leading provider in the wedding industry, DeireWedding 
+          is renowned for its exceptional craftsmanship, attention to detail, and personalized 
+          service.</h4><br>
+    </div>
+  </div>
+</div>
+
+
+<!-- Container (Services Section) -->
+<div id="new-section" class="section-spacing">
+<div id="service" class="container-fluid text-center">
+  <h2>SERVICES</h2>
+  <h4>What we offer</h4>
+  <br>
+  <div class="row slideanim">
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-wrench large-icon"></span>
+      <h4>CUSTOME DAIS DESIGN</h4>
+      <p>We work closely with our clients to create a customized pelamin that aligns with their vision and theme of the wedding.</p>
+    </div>
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-tree-deciduous large-icon"></span>
+      <h4>FLORAL</h4>
+      <p>Our team of expert florists crafts stunning floral arrangements that serve as the centerpiece of the dais, using fresh, high-quality flowers that coordinate with the wedding's color scheme.</p>
+    </div>
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-lamp large-icon"></span>
+      <h4>LIGHTING & DRAPERACY</h4>
+      <p>We offer elegant lights and drapes to make the wedding stage look beautiful and stand out.</p>
+    </div>
+  </div>
+  <br><br>
+  <div class="row slideanim">
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-bed large-icon"></span>
+      <h4>FURNITURE</h4>
+      <p>We choose comfortable seats for the bride and groom and pretty accessories to make the stage look nice and stylish. </p>
+    </div>
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-gift large-icon"></span>
+      <h4>SET-UP & BREAKDOWN</h4>
+      <p>Our team ensures a hassle-free experience by handling the complete setup and breakdown of the dais, allowing the couple and their families to focus on enjoying the special day.</p>
+    </div>
+  </div>
+</div>
+</div>
+
+    <div id="new-section" class="section-spacing">
+        <div id="contact" class="container-fluid bg-grey align-center">
+            <h2 class="text-center">CONTACT</h2>
+            <div class="row">
+                <div class="col-sm-5">
+                    <p>Contact us and we'll get back to you within 24 hours.</p>
+                    <p><span class="glyphicon glyphicon-map-marker"></span> Kuala Lumpur</p>
+                    <p><span class="glyphicon glyphicon-phone"></span> 0176343005</p>
+                    <p><span class="glyphicon glyphicon-envelope"></span> deirewedding@gmail.com</p>
+                    <p><span class="glyphicon glyphicon-camera"></span> @deireweddings</p>
+                </div>
+                <form onsubmit="showAlert()">
+                    <div class="col-sm-7 slideanim">
+                        <div class="row">
+                            <div class="col-sm-6 form-group">
+                                <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
+                            </div>
+                            <div class="col-sm-6 form-group">
+                                <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+                            </div>
+                        </div>
+                        <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea><br>
+                        <div class="row">
+                            <div class="col-sm-12 form-group">
+                                <button class="btn btn-default pull-right" type="submit">Send</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+<script>
+function showAlert() {
+    alert("Your request has been sent to DeireWedding.");
+    return false; // Remove this line if you want the form to submit
+}
+</script>
+
+<footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-row">
+                <div class="footer-column">
+                    <h3>About Us</h3>
+                    <p>We are a dedicated team passionate about making your special day unforgettable.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li>Your Wedding Planner</li>
+                        <li>Phone: 011-28979023</li>
+                        <li>Email: azianaaziz@weddingplanner.com</li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Follow Us</h3>
+                    <ul class="social-icons">
+                        <li><a href="https://www.facebook.com/ainiatirahbtjasmi" target="_blank"><img src="fb.png" alt="Facebook"></a></li>
+                        <li><a href="https://twitter.com/lurvee4u target="_blank"><img src="x.png" alt="X"></a></li>
+                        <li><a href="https://www.instagram.com/_ainiatirah target="_blank"><img src="ig.png" alt="Instagram"></a></li>
+                        <li><a href="https://www.pinterest.com/ainiatirah44" target="_blank""><img src="p.png" alt="Pinterest"></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer ends here --
+</body>
+</html>

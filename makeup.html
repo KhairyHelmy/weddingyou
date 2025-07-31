@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Makeup</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+    }
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #000000;
+        padding: 10px 20px;
+    }
+    .navbar {
+        display: flex;
+        align-items: center;
+    }
+    .navbar a {
+        color:  #FFD700;
+        text-align: center;
+        padding: 14px 20px;
+        text-decoration: none;
+    }
+    .navbar a:hover {
+        background-color: #FFD700;
+        color: black;
+    }
+    .logo {
+        align-self: center;
+    }
+    .logo img {
+        height: 60px; /* Adjust as needed */
+    }
+    .search-container {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        padding: 10px 20px;
+        background-color: #f2f2f2;
+    }
+    .search-container input[type="text"] {
+        padding: 5px 10px;
+        font-size: 14px;
+        border: 1px solid #ddd;
+        width: 150px; /* Adjust width as needed */
+    }
+    .search-container button {
+        padding: 5px 10px;
+        background: none;
+        border: 1px solid #ddd;
+        cursor: pointer;
+    }
+    .hamburger-menu {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 30px; /* Width of the hamburger menu */
+        height: 25px; /* Height of the hamburger menu */
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        margin-left: 10px;
+    }
+    .hamburger-menu div {
+        width: 100%;
+        height: 2px;
+        background-color: #333;
+    }
+    .dropdown-menu {
+        display: none; /* Hide menu initially */
+        position: absolute;
+        right: 0;
+        top: 50px; /* Adjust as needed based on your layout */
+        background-color: #f2f2f2;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 5px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    }
+
+    .dropdown-menu a {
+        display: block;
+        color: #333;
+        padding: 10px 20px;
+        text-decoration: none;
+    }
+
+    .dropdown-menu a:hover {
+        background-color: #ddd;
+    }     
+    .hamburger-menu:focus + .dropdown-menu, 
+    .hamburger-menu:hover + .dropdown-menu {
+        display: block; /* Show menu on hover or focus */
+    }
+    .container {
+        width: 100%;
+    }
+    
+    .row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .image, .text {
+            flex: 1;
+        }
+        .image {
+            padding-right: 20px; /* Adds space inside the right boundary of the image container */
+         }
+
+       .image img {
+            max-width: 100%;
+            height: auto;
+         }
+         .text {
+            padding-left: 20px;
+         }
+         .site-footer {
+           background-color: #000000; /* Footer background color */
+           color: #fff; /* Footer text color */
+           padding: 20px 0; /* Footer padding */
+           font-size: 14px; /* Footer text size */
+       }
+       .footer-container {
+           max-width: 1200px; /* Max width of the content inside the footer */
+           margin: 0 auto; /* Center the footer container */
+           padding: 0 15px; /* Padding inside the container */
+       }
+       .footer-row {
+           display: flex;
+           flex-wrap: wrap;
+           justify-content: space-between;
+       }
+       .footer-column {
+           flex: 1;
+           min-width: 200px; /* Minimum width of each footer column */
+           margin-bottom: 20px; /* Space between columns */
+       }
+      .footer-column h3 {
+           margin-bottom: 10px; /* Space below the column header */
+       }
+       .footer-column ul {
+           list-style-type: none; /* Removes the default list style */
+           padding: 0; /* Removes default padding */
+           margin: 0; /* Removes default margin */
+       }
+       .footer-column ul li {
+           margin-bottom: 5px; /* Space between list items */
+       }
+       .footer-column ul li a {
+           color: #fff; /* Link color */
+           text-decoration: none; /* Removes underline from links */
+       }
+
+       .social-icons {
+           display: flex;
+           padding: 0;
+       }
+
+       .social-icons li {
+            margin-right: 10px; /* Space between social icons */
+       }
+
+      .social-icons li a img {
+            width: 24px; /* Size of social icons */
+            height: auto;
+       }
+
+       @media (max-width: 768px) {
+            .footer-row {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-column {
+        min-width: 100%; /* Each column takes full width on small screens */
+        }
+   </style>
+</head>
+<body>
+    <div class="header">
+    <div class="logo">
+        <img src="logo.jpg" alt="Logo">
+    </div>
+    <div class="navbar">
+        <a href="home.html">Home</a>
+        <a href="dais.html">Dais</a>
+        <a href="card.html">Card</a>
+        <a href="makeup.html">Makeup</a>
+        <a href="memory.html">Memory</a>
+        <a href="fitting.html">Fitting</a>
+        <a href="venue.html">Venue</a>
+        <a href="dowry.html">Dowry</a>
+        <a href="contact.html">Contact</a>
+    </div>
+</div>
+
+<div style="padding:20px">
+    <!-- Content of the website goes here -->
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 image">
+        <img src ="makeupimej.jpg"makeup 1">
+    </div>
+    <div class="col-md-6 text">
+      <h1>Lipstick : "Signature Wedding Lipstick Collection"</h1>
+      <p><span class="glyphicon glyphicon-ok"></span> Lipstick: 
+Create a signature collection of lipstick shades specifically curated for brides. Highlight the collection 
+as part of your wedding makeup services. Consider naming each shade after wedding-related themes or moments 
+(e.g., "Blissful Bride," "Romantic Rose"). Offer brides a personalized consultation to help them choose the 
+perfect lipstick shade that complements their wedding theme and enhances their overall look.
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 image">
+        <img src ="makeup3.jpg"makeup 2">
+    </div>
+    <div class="col-md-6 text">
+      <h1>Hair : "Trendsetting Bridal Hairstyle Showcase"</h1>
+      <p><span class="glyphicon glyphicon-ok"></span> Hair:
+        Launch a trendsetting bridal hairstyle showcase that features the latest and most popular wedding hairstyles.
+         Create a lookbook or gallery on your website showcasing diverse hairstyles, including updos, braids, and elegant waves.
+          Accompany each hairstyle with tips on how to maintain the look throughout the wedding day. Consider offering a package
+           that includes a hairstyling trial session and the chosen hairstyle for the wedding day.
+
+
+
+

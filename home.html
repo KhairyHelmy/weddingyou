@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #000000;
+            padding: 10px 20px;
+        }
+        .navbar {
+            display: flex;
+            align-items: center;
+        }
+        .navbar a {
+            color: #FFD700;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+        .navbar a:hover {
+            background-color: #FFD700;
+            color: black;
+        }
+        .logo {
+            align-self: center;
+        }
+        .logo img {
+            height: 60px; /* Adjust as needed */
+        }
+        .search-container {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #f2f2f2;
+        }
+        .search-container input[type="text"] {
+            padding: 5px 10px;
+            font-size: 14px;
+            border: 1px solid #ddd;
+            width: 150px; /* Adjust width as needed */
+        }
+        .search-container button {
+            padding: 5px 10px;
+            background: none;
+            border: 1px solid #ddd;
+            cursor: pointer;
+        }
+        .hamburger-menu {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px; /* Width of the hamburger menu */
+            height: 25px; /* Height of the hamburger menu */
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            margin-left: 10px;
+        }
+        .hamburger-menu div {
+            width: 100%;
+            height: 2px;
+            background-color: #333;
+        }
+        .dropdown-menu {
+            display: none; /* Hide menu initially */
+            position: absolute;
+            right: 0;
+            top: 50px; /* Adjust as needed based on your layout */
+            background-color: #f2f2f2;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 5px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        }
+
+        .dropdown-menu a {
+            display: block;
+            color: #333;
+            padding: 10px 20px;
+            text-decoration: none;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #ddd;
+        }
+
+        .hamburger-menu:focus + .dropdown-menu, 
+        .hamburger-menu:hover + .dropdown-menu {
+            display: block; /* Show menu on hover or focus */
+        }
+
+        .content {
+            background-image: url('bg1.jpg');
+            background-size: cover; /* Cover the entire area of the container */
+            background-position: center; /* Center the background image */
+            color: white; /* Text color */
+            padding: 200px; /* Adjust padding as needed */
+            text-align: bottom-left; /* Center align text */
+            font-family: "Times New Roman", Times, serif;
+        
+        }
+        .text-bottom-left {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            margin: 50px;
+            padding: 30px;
+            color: white; /* or any color you prefer */
+            /* Add more styling as needed */
+        }
+       
+        .image-gallery {
+            display: flex;
+            justify-content: center;
+            padding: 50px;
+        }
+        .image-gallery img {
+            width: 30%; /* Adjust as needed */
+            margin: 0 10px; /* Spacing between images */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 10px; /* Optional: for rounded corners */
+        }
+        @media (max-width: 600px) {
+        .container {
+            display: flex; /* Enable Flexbox */
+            align-items: right; /* Align items vertically */
+        }
+
+         .image-container img {
+             width: 180px; /* Adjust the width as needed */
+             height: auto; /* Maintain the aspect ratio */
+        }
+       .text-container {
+            margin-left: 40px;
+            margin-top: 40px;
+        }
+        .custom-font {
+            font-family: Lucida Handwriting, cursive;
+            font-size: 15px;
+        }
+        .site-footer {
+           background-color: #000000; /* Footer background color */
+           color: #FFD700; /* Footer text color */
+           padding: 20px 0; /* Footer padding */
+           font-size: 14px; /* Footer text size */
+       }
+   
+       .footer-container {
+           max-width: 1200px; /* Max width of the content inside the footer */
+           margin: 0 auto; /* Center the footer container */
+           padding: 0 15px; /* Padding inside the container */
+       }
+       .footer-row {
+           display: flex;
+           flex-wrap: wrap;
+           justify-content: space-between;
+       }
+       .footer-column {
+           flex: 1;
+           min-width: 200px; /* Minimum width of each footer column */
+           margin-bottom: 20px; /* Space between columns */
+       }
+      .footer-column h3 {
+           margin-bottom: 10px; /* Space below the column header */
+       }
+       .footer-column ul {
+           list-style-type: none; /* Removes the default list style */
+           padding: 0; /* Removes default padding */
+           margin: 0; /* Removes default margin */
+       }
+       .footer-column ul li {
+           margin-bottom: 5px; /* Space between list items */
+       }
+       .footer-column ul li a {
+           color: #fff; /* Link color */
+           text-decoration: none; /* Removes underline from links */
+       }
+
+       .social-icons {
+           display: flex;
+           padding: 0;
+       }
+
+       .social-icons li {
+            margin-right: 10px; /* Space between social icons */
+       }
+
+      .social-icons li a img {
+            width: 24px; /* Size of social icons */
+            height: auto;
+       }
+
+       @media (max-width: 768px) {
+            .footer-row {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-column {
+        min-width: 100%; /* Each column takes full width on small screens */
+        }
+    </style>
+</head>
+<body>
+
+<div class="search-container">
+    <form action="/search" method="get" style="display: flex; align-items: center;">
+        <input type="text" placeholder="Search.." name="search">
+        <button type="submit">Search</button>
+    </form>
+    <button class="hamburger-menu">
+        <div></div>
+        <div></div>
+        <div></div>
+    </button>
+
+    <!-- Dropdown Menu Items -->
+    <div class="dropdown-menu">
+            <a href="#register">Register</a>
+            <a href="#login">Login</a>
+            <a href="#logout">Logout</a>
+        </div>
+    </div>
+
+<div class="header">
+    <div class="logo">
+        <img src="logo.jpg" alt="Logo">
+    </div>
+    <div class="navbar">
+        <a href="home.html">Home</a>
+        <a href="dais.html">Dais</a>
+        <a href="card.html">Card</a>
+        <a href="makeup.html">Makeup</a>
+        <a href="memory.html">Memory</a>
+        <a href="fitting.html">Fitting</a>
+        <a href="venue.html">Venue</a>
+        <a href="dowry.html">Dowry</a>
+        <a href="contact.html">Contact</a>
+    </div>
+</div>
+
+<div style="padding:20px">
+    <!-- Content of the website goes here -->
+</div>
+
+<div class="content" id="slideshow">
+    <div class="text-bottom-left">
+    <!-- Your content goes here -->
+    <h1>Love,<br>
+       Celebrated,<br> 
+       Memories.</br></h1>
+    <!-- More content can be added here -->
+</div>
+</div>
+
+<div class="container-fluid">
+      <div class="image-container">
+        <div class="image-gallery">
+           <img src="img1.jpg" alt="Image 1">
+           <img src="img2.jpg" alt="Image 2">
+           <img src="img3.jpg" alt="Image 3">
+        </div>
+</div>
+         <div id="about" class="custom-font">
+            <p>"Welcome to Your Dream Wedding, where dreams are meticulously woven into reality. With an unwavering passion for love stories and an artistry for crafting unforgettable moments, we specialize in bringing your unique vision to life. Guided by creativity and a commitment to perfection, we turn your dreams into an exquisite tapestry of love and celebration. Our dedicated team ensures every detail is harmoniously orchestrated, creating a seamless and magical experience for you and your beloved. From intimate gatherings to grand affairs, we are honored to be part of your journey, creating cherished memories that last a lifetime."</p>
+         </div>
+ </div>
+ 
+<footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-row">
+                <div class="footer-column">
+                    <h3>About Us</h3>
+                    <p>We are a dedicated team passionate about making your special day unforgettable.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li>Your Wedding Planner</li>
+                        <li>Phone: 011-28979023</li>
+                        <li>Email: azianaaziz@weddingplanner.com</li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Follow Us</h3>
+                    <ul class="social-icons">
+                        <li><a href="#"><img src="fb.png" alt="Facebook"></a></li>
+                        <li><a href="#"><img src="x.png" alt="X"></a></li>
+                        <li><a href="https://www.instagram.com/_ainiatirah" target="_blank"><img src="ig.png" alt="Instagram"></a></li>
+                        <li><a href="#"><img src="p.png" alt="Pinterest"></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>       
+    <!-- Footer ends here --
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+</body>
+</html>
+
+
+
